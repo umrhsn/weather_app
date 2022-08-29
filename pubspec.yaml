@@ -20,6 +20,8 @@ dependencies:
   dio: ^4.0.6
   # object comparing package
   equatable: ^2.0.5
+  # date-time with formatting
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +31,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/sun.gif
+    - assets/images/moon.gif
