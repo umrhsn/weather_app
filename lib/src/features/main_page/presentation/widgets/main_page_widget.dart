@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/src/core/utils/app_colors.dart';
 import 'package:weather_app/src/core/utils/media_query_values.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/weather_appbar.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/cards/info_card/info_card.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/sunset_sunrise_card.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/today_card.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/card_widget.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/cards/today_temp_list.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/week_card/week_card.dart';
 
 class MainPageWidget extends StatefulWidget {
@@ -38,22 +40,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
   @override
   Widget build(BuildContext context) {
     bool isLight = context.brightness == Brightness.light;
-    var testListItem = CardWidget(isLight: isLight, isCollapsed: _appBarCollapsed);
 
     List<Widget> widgetsList = [
       Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            testListItem,
+            TodayTemperaturesList(isLight: isLight, isCollapsed: _appBarCollapsed),
             TodayCard(isLight: isLight, isCollapsed: _appBarCollapsed),
             WeekCard(isLight: isLight, isCollapsed: _appBarCollapsed),
             SunsetSunriseCard(isLight: isLight, isCollapsed: _appBarCollapsed),
-            testListItem,
-            testListItem,
-            testListItem,
-            testListItem,
-            testListItem
+            InfoCard(isLight: isLight, isCollapsed: _appBarCollapsed),
           ],
         ),
       )
@@ -63,8 +60,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       // TODO: change [backgroundColor] dynamically with [SliverAppBar] color change
       backgroundColor: _appBarCollapsed
           ? isLight
-              ? AppColors.backgroundLight
-              : AppColors.backgroundDark
+              ? AppColors.lightGrey
+              : AppColors.black
           // TODO: change background color according to day-night status of user's location
           : AppColors.night,
       body: CustomScrollView(

@@ -9,7 +9,7 @@ class AppThemes {
     return ThemeData(
       brightness: isLight ? Brightness.light : Brightness.dark,
       appBarTheme: AppBarThemes.appBarTheme(isLight: isLight),
-      scaffoldBackgroundColor: isLight ? AppColors.backgroundLight : AppColors.backgroundDark,
+      scaffoldBackgroundColor: isLight ? AppColors.lightGrey : AppColors.black,
       textTheme: AppTextThemes.textTheme(isLight: isLight),
       iconTheme: AppIconThemes.iconTheme(isLight: isLight),
     );

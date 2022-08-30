@@ -1,10 +1,15 @@
-const String imgPath = 'assets/images';
+const String path = 'assets/images';
 
 class ImgAssets {
-  static String sunPng = '$imgPath/sun.png';
-  static String sunGif = '$imgPath/sun.gif';
-  static String moonPng = '$imgPath/moon.png';
-  static String moonGif = '$imgPath/moon.gif';
-  static String sunrise = '$imgPath/sunrise.png';
-  static String sunset = '$imgPath/sunset.png';
+  static const String sunPng = '$path/sun.png';
+  static const String sunGif = '$path/sun.gif';
+  static const String moonPng = '$path/moon.png';
+  static const String moonGif = '$path/moon.gif';
+
+  static const String sunrise = '$path/sunrise.png';
+  static const String sunset = '$path/sunset.png';
+
+  static const String uvIndex = '$path/uv_index.png';
+  static const String wind = '$path/wind.png';
+  static const String humidity = '$path/humidity.png';
 }

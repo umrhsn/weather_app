@@ -36,7 +36,7 @@ class WeatherAppBar extends StatelessWidget {
   }
 
   Color _setBackgroundColor() {
-    return isLight ? AppColors.backgroundLight : AppColors.backgroundDark;
+    return isLight ? AppColors.lightGrey : AppColors.black;
   }
 
   LocationText? _buildTitleWidget() {

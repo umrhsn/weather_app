@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   /// scaffold background colors
-  static Color backgroundLight = Colors.grey.shade100;
-  static const Color backgroundDark = Colors.black;
+  static Color lightGrey = Colors.grey.shade100;
+  static const Color black = Colors.black;
 
-  /// cards colors
+  /// card colors
+  static Color dividerLightGrey = Colors.grey.shade300;
+  static Color dividerDarkGrey = Colors.grey.shade600;
   static Color darkGrey = Colors.grey.shade900;
 
   /// time of day background colors
