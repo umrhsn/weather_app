@@ -22,4 +22,7 @@ class AppStrings {
 
   static const String windSpeed = '23 km/h';
   static const String humidityPercent = '31%';
+
+  /// symbols
+  static const String symbolDegree = '°';
 }

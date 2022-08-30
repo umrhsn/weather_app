@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/src/core/utils/app_colors.dart';
 import 'package:weather_app/src/core/utils/assets_manager.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/card_widget.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/cards/week_card/widgets/rain_probability.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/week_card/widgets/rain_probability_item.dart';
 
 class TodayTemperaturesList extends StatelessWidget {
@@ -25,10 +24,7 @@ class TodayTemperaturesList extends StatelessWidget {
             const SizedBox(height: 15),
             Text('34°', style: AppColors.collapsedMediumTextStyle(context, isCollapsed)),
             const SizedBox(height: 8),
-            RainProbabilityItem(
-              customIconColor: AppColors.collapsedGreyCyanIconColor(context, isCollapsed),
-              customTextColor: AppColors.collapsedSmallTextStyle(context, isCollapsed),
-            ),
+            RainProbabilityItem(rainProbability: '100', isCollapsed: isCollapsed, smallText: true),
           ],
         ),
       );

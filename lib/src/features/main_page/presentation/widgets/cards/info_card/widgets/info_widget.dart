@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/src/core/utils/assets_manager.dart';
 
 class InfoWidget extends StatelessWidget {
   final bool isLight;

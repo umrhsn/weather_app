@@ -5,7 +5,6 @@ import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/w
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/info_card/info_card.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/sunset_sunrise_card.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/today_card.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/card_widget.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/today_temp_list.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/cards/week_card/week_card.dart';
 
@@ -68,9 +67,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         controller: _scrollController,
         slivers: [
           WeatherAppBar(isCollapsed: _appBarCollapsed, isLight: isLight),
-          SliverList(
-            delegate: SliverChildListDelegate(widgetsList),
-          )
+          SliverList(delegate: SliverChildListDelegate(widgetsList))
         ],
         scrollBehavior:
             // TODO: Search for the new way to implement AndroidOverscrollIndicator
