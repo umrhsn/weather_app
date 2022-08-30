@@ -13,4 +13,24 @@ class AppColors {
   static const Color dayCard = Color(0xFF8BB9EB);
   static const Color night = Color(0xFF3D4472);
   static const Color nightCard = Color(0xFF626689);
+
+  /// collapsing appBar colors
+  static TextStyle collapsedSmallTextStyle(BuildContext context, bool isCollapsed) {
+    return TextStyle(
+        fontSize: Theme.of(context).textTheme.bodySmall?.fontSize,
+        color: !isCollapsed ? Colors.white : Theme.of(context).textTheme.bodySmall?.color);
+  }
+
+  static TextStyle collapsedMediumTextStyle(BuildContext context, bool isCollapsed) {
+    return TextStyle(
+        color: !isCollapsed ? Colors.white : Theme.of(context).textTheme.bodyMedium?.color);
+  }
+
+  static Color collapsedBlackWhiteIconColor(BuildContext context, bool isCollapsed) {
+    return !isCollapsed ? Colors.white : Theme.of(context).iconTheme.color!;
+  }
+
+  static Color collapsedGreyCyanIconColor(BuildContext context, bool isCollapsed) {
+    return !isCollapsed ? Colors.grey.shade400 : Colors.cyan.shade200;
+  }
 }

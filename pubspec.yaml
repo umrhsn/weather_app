@@ -32,5 +32,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/sun.gif
-    - assets/images/moon.gif
+    - assets/images/

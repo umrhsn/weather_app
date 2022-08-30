@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/core/utils/app_dimens.dart';
 
-class HighLowTemperatureWidget extends StatelessWidget {
-  const HighLowTemperatureWidget({
+class HighLowText extends StatelessWidget {
+  const HighLowText({
     Key? key,
     required this.isCollapsed,
   }) : super(key: key);

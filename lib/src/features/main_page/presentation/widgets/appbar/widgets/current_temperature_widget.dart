@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/config/themes/widgets/text_theme.dart';
 import 'package:weather_app/src/core/utils/assets_manager.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar_widgets/datetime_now_widget.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar_widgets/high_low_temperature_widget.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/datetime_now_text.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/high_low_text.dart';
 
 class CurrentTemperatureWidget extends StatelessWidget {
   const CurrentTemperatureWidget({
@@ -17,7 +17,6 @@ class CurrentTemperatureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           '33°',
@@ -25,14 +24,16 @@ class CurrentTemperatureWidget extends StatelessWidget {
               ? AppTextThemes.textTheme(isLight: isLight).bodyLarge
               : AppTextThemes.textTheme(isLight: isLight).bodyLarge!.copyWith(color: Colors.white),
         ),
+        const Spacer(flex: 1),
         isCollapsed
             ? Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                HighLowTemperatureWidget(isCollapsed: isCollapsed),
-                DateTimeNowWidget(isCollapsed: isCollapsed),
+                HighLowText(isCollapsed: isCollapsed),
+                DateTimeNowText(isCollapsed: isCollapsed),
               ])
             : Container(),
+        const Spacer(flex: 3),
         // TODO: change image according to day-night status of user's location
-        Image.asset(ImgAssets.moon, height: 80)
+        Image.asset(ImgAssets.moonGif, height: 80)
       ],
     );
   }

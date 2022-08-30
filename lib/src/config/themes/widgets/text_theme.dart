@@ -10,7 +10,10 @@ class AppTextThemes {
           color: isLight ? Colors.black : Colors.white, fontSize: AppDimens.fontSizeSmall),
       bodyLarge: TextStyle(
           color: isLight ? Colors.black : Colors.white, fontSize: 60, fontWeight: FontWeight.w100),
-      bodyMedium: TextStyle(color: isLight ? Colors.black : Colors.white),
+      bodyMedium:
+          TextStyle(color: isLight ? Colors.black : Colors.white, fontWeight: FontWeight.w500),
+      bodySmall: TextStyle(
+          color: isLight ? Colors.black : Colors.white, fontSize: 10, fontWeight: FontWeight.w300),
     );
   }
 }

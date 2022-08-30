@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar_widgets/address_widget.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar_widgets/body_widget.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar_widgets/current_temperature_widget.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/location_text.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/body_widget.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/current_temperature_widget.dart';
 
-class WeatherMainWidget extends StatelessWidget {
-  const WeatherMainWidget({
+class MainWidget extends StatelessWidget {
+  const MainWidget({
     Key? key,
     required this.isLight,
     required this.isCollapsed,
@@ -22,10 +22,10 @@ class WeatherMainWidget extends StatelessWidget {
         children: [
           isCollapsed ? const Spacer(flex: 2) : const Spacer(flex: 7),
           CurrentTemperatureWidget(isLight: isLight, isCollapsed: isCollapsed),
-          isCollapsed ? Container() : AddressWidget(isCollapsed: isCollapsed),
+          isCollapsed ? Container() : LocationText(isCollapsed: isCollapsed),
           isCollapsed ? Container() : const Spacer(flex: 2),
           isCollapsed ? Container() : BodyWidget(isCollapsed: isCollapsed),
-          isCollapsed ? const Spacer() : const Spacer(flex: 5),
+          isCollapsed ? const Spacer() : const Spacer(flex: 3),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FeelsLikeWidget extends StatelessWidget {
-  const FeelsLikeWidget({
+class FeelsLikeText extends StatelessWidget {
+  const FeelsLikeText({
     Key? key,
   }) : super(key: key);
 

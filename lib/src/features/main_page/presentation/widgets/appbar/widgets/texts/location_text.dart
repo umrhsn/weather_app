@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AddressWidget extends StatelessWidget {
-  const AddressWidget({
+class LocationText extends StatelessWidget {
+  const LocationText({
     Key? key,
     required this.isCollapsed,
   }) : super(key: key);

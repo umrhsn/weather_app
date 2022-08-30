@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/src/core/utils/app_colors.dart';
 import 'package:weather_app/src/core/utils/media_query_values.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/weather_appbar.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/cards/sunset_sunrise_card.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/cards/today_card.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/card_widget.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/cards/week_card/week_card.dart';
 
 class MainPageWidget extends StatefulWidget {
   const MainPageWidget({Key? key}) : super(key: key);
@@ -21,13 +25,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     _scrollController = ScrollController()
       ..addListener(() {
         if (isCollapsed() && !_appBarCollapsed) {
-          setState(() {
-            _appBarCollapsed = true;
-          });
+          setState(() => _appBarCollapsed = true);
         } else if (!isCollapsed() && _appBarCollapsed) {
-          setState(() {
-            _appBarCollapsed = false;
-          });
+          setState(() => _appBarCollapsed = false);
         }
       });
   }
@@ -38,28 +38,17 @@ class _MainPageWidgetState extends State<MainPageWidget> {
   @override
   Widget build(BuildContext context) {
     bool isLight = context.brightness == Brightness.light;
-    var testListItem = Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          height: 100,
-          color: _appBarCollapsed
-              ? isLight
-                  ? Colors.white
-                  : AppColors.darkGrey
-              // TODO: change card color according to day-night status of user's location
-              : AppColors.nightCard,
-        ),
-      ),
-    );
+    var testListItem = CardWidget(isLight: isLight, isCollapsed: _appBarCollapsed);
 
-    List<Widget> sliverChildrenList = [
+    List<Widget> widgetsList = [
       Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             testListItem,
+            TodayCard(isLight: isLight, isCollapsed: _appBarCollapsed),
+            WeekCard(isLight: isLight, isCollapsed: _appBarCollapsed),
+            SunsetSunriseCard(isLight: isLight, isCollapsed: _appBarCollapsed),
             testListItem,
             testListItem,
             testListItem,
@@ -83,7 +72,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         slivers: [
           WeatherAppBar(isCollapsed: _appBarCollapsed, isLight: isLight),
           SliverList(
-            delegate: SliverChildListDelegate(sliverChildrenList),
+            delegate: SliverChildListDelegate(widgetsList),
           )
         ],
         scrollBehavior:
