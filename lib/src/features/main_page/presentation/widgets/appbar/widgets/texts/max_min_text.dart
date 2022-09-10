@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/core/utils/app_dimens.dart';
 
-class HighLowText extends StatelessWidget {
-  const HighLowText({
+class MaxMinText extends StatelessWidget {
+  const MaxMinText({
     Key? key,
     required this.isCollapsed,
   }) : super(key: key);

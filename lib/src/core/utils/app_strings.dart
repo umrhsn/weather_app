@@ -17,12 +17,9 @@ class AppStrings {
   static const String wind = 'Wind';
   static const String humidity = 'Humidity';
 
-  static const String high = 'High';
-  static const String low = 'Low';
-
-  static const String windSpeed = '23 km/h';
-  static const String humidityPercent = '31%';
-
   /// symbols
   static const String symbolDegree = '°';
+
+  /// network
+  static const String httpsWColon = 'https:';
 }

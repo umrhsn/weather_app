@@ -12,12 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  # ui handling
-  flutter_screenutil: ^5.5.3+2
   # state management tools
   flutter_bloc: ^8.1.1
   # api handling
   dio: ^4.0.6
+  # response handling
+  dartz: ^0.10.1
   # object comparing package
   equatable: ^2.0.5
   # date-time with formatting

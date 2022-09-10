@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/src/config/themes/system/system_overlay_style.dart';
 import 'package:weather_app/src/core/utils/app_colors.dart';
 import 'package:weather_app/src/core/utils/app_dimens.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/location_text.dart';
+import 'package:weather_app/src/features/main_page/presentation/cubit/app_cubit.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/region_text.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/main_widget.dart';
 
 // ignore: must_be_immutable
@@ -39,8 +41,8 @@ class WeatherAppBar extends StatelessWidget {
     return isLight ? AppColors.lightGrey : AppColors.black;
   }
 
-  LocationText? _buildTitleWidget() {
-    return isCollapsed ? LocationText(isCollapsed: isCollapsed) : null;
+  RegionText? _buildTitleWidget() {
+    return isCollapsed ? RegionText(isCollapsed: isCollapsed) : null;
   }
 
   FlexibleSpaceBar _buildFlexibleSpaceBar() {
@@ -49,8 +51,15 @@ class WeatherAppBar extends StatelessWidget {
       collapseMode: CollapseMode.none,
       titlePadding: EdgeInsets.only(top: isCollapsed ? 0 : 50, right: 20, left: 20),
       title: MainWidget(isLight: isLight, isCollapsed: isCollapsed),
-      // TODO: change background color according to day-night status of user's location
-      background: Container(color: AppColors.night),
+      background: BlocBuilder<AppCubit, AppState>(
+        builder: (context, state) {
+          var isDay = 1;
+          if (state is GetForecastSuccess) {
+            isDay = state.current.isDay;
+          }
+          return Container(color: isDay == 1 ? AppColors.day : AppColors.night);
+        },
+      ),
     );
   }
 

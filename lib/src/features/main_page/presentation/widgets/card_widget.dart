@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/src/core/utils/app_colors.dart';
+import 'package:weather_app/src/features/main_page/presentation/cubit/app_cubit.dart';
 
 class CardWidget extends StatelessWidget {
   final bool isLight;
@@ -15,20 +17,29 @@ class CardWidget extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          width: double.infinity,
-          color: isCollapsed
-              ? isLight
-                  ? Colors.white
-                  : AppColors.darkGrey
-              // TODO: change card color according to day-night status of user's location
-              : AppColors.nightCard,
-          child: widget ??
-              Text('tempListItem',
-                  style: isCollapsed
-                      ? Theme.of(context).textTheme.bodyMedium
-                      : Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+        child: BlocBuilder<AppCubit, AppState>(
+          builder: (context, state) {
+            var isDay = 1;
+            if (state is GetForecastSuccess) {
+              isDay = state.current.isDay;
+            }
+            return Container(
+              padding: const EdgeInsets.all(20),
+              width: double.infinity,
+              color: isCollapsed
+                  ? isLight
+                      ? Colors.white
+                      : AppColors.darkGrey
+                  : isDay == 1
+                      ? AppColors.dayCard
+                      : AppColors.nightCard,
+              child: widget ??
+                  Text('tempListItem',
+                      style: isCollapsed
+                          ? Theme.of(context).textTheme.bodyMedium
+                          : Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
+            );
+          },
         ),
       ),
     );

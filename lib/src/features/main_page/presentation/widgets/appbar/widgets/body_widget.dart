@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/datetime_now_text.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/feels_like_text.dart';
-import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/high_low_text.dart';
+import 'package:weather_app/src/features/main_page/presentation/widgets/appbar/widgets/texts/max_min_text.dart';
 
 class BodyWidget extends StatelessWidget {
   const BodyWidget({
@@ -19,7 +19,7 @@ class BodyWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            HighLowText(isCollapsed: isCollapsed),
+            MaxMinText(isCollapsed: isCollapsed),
             isCollapsed ? Container() : const FeelsLikeText(),
           ],
         ),

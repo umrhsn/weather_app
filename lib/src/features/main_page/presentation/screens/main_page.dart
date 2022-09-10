@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/src/features/main_page/presentation/cubit/app_cubit.dart';
 import 'package:weather_app/src/features/main_page/presentation/widgets/main_page_widget.dart';
 
 class MainPage extends StatefulWidget {
@@ -11,6 +13,10 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return const MainPageWidget();
+    return BlocBuilder<AppCubit, AppState>(
+      builder: (context, state) {
+        return const MainPageWidget();
+      },
+    );
   }
 }
